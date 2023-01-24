@@ -1,86 +1,252 @@
-1. Inicio
-2. funcion principal()
-3.	bandera, l <-- true
-4.	contador, i[0-n] <-- 0
-5.	opcion, i[0-n]
-6.	opcionDos, i[0-n]
-7.	mensaje, x(100)[{A-Z}, {a-z}, {BS}]
-8.	Mientras bandera == true entonces
-9.		<< "Ingrese 1 para crear una cuenta en Facebook\n
-10.			Ingrese 2 para crear una cuenta en Twitter\n
-11.			Ingrese 3 para crear una cuenta en Whatsapp\n
-12.			Ingrese 4 para crear una cuenta en Telegram\n
-13.			Ingrese 5 para crear una cuenta en Signal\n
-14.			Ingrese 6 para crear una cuenta en Instagram\n
-15.			Ingrese 7 para crear una cuenta en Flickr\n"
-16.		>> opcion
-17.		Si opcion == 1 entonces
-18.			crearFacebook()
-19.		De lo contrario
-20.			Si opcion == 2 entonces
-21.				crearTwitter()
-22.			De lo contrario
-23.				Si opcion == 3 entonces
-24.					crearWhatsapp()
-25.				De lo contrario
-26.					Si opcion == 4 entonces
-27.						crearTelegram()
-28.					De lo contrario
-29.						Si opcion == 5 entonces
-30.							crearSignal()
-31.						De lo contrario
-32.							Si opcion == 6 entonces
-33.								crearInstagram()
-34.							De lo contrario
-35.								Si opcion == 7 entonces
-36.									crearFlickr()
-37.								De lo contrario
-38.									<< "Error en opción seleccionada."
-39.								Fin si
-40.							Fin si
-41.						Fin Si
-42.					Fin Si
-43.				Fin Si
-44.			Fin Si
-45.		Fin Si
-46.		contador <-- contador + 1
-47.		<< "Si desea continuar en el programa presione 1, de lo contrario 2."
-48.		>> opcionDos
-49.		Si opcionDos == 1 entonces
-50.			bandera <-- false
-51.		Fin si
-52.	Fin Mientras
-53.	mensaje <-- obtenerMensaje(contador)
-54.	<< "Con número de cuentas " + contador + " es: " + mensaje
-55. Fin funcion principal
+Inicio
+funcion principal()
+	bandera, l <-- true
+	contador, i[0-n] <-- 0
+	opcion, i[0-n]
+	opcionDos, i[0-n]
+	mensaje, x(100)[{A-Z}, {a-z}, {BS}]
+	Mientras bandera == true entonces
+		contador <-- contador + 1
+		<< "Ingrese 1 para crear una cuenta en Facebook\n
+			Ingrese 2 para crear una cuenta en Twitter\n
+			Ingrese 3 para crear una cuenta en Whatsapp\n
+			Ingrese 4 para crear una cuenta en Telegram\n
+			Ingrese 5 para crear una cuenta en Signal\n
+			Ingrese 6 para crear una cuenta en Instagram\n
+			Ingrese 7 para crear una cuenta en Flickr\n"
+		>> opcion
 
-56. funcion crearFacebook()
-57.	nombre, x(30)[{A-Z}, {a-z}, {BS}]
-58.	edad, i[0-n]
-59.	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
-60.	pais, x(20)[{A-Z}, {a-z}, {BS}]
-61.	correo, x(30)[{A-Z}, {a-z}, {0-n}, {BS}]
-62.	<< "Ingrese su nombre de usuario:"
-63.	>> nombre
-64.	<< "Ingrese su edad:"
-65.	>> edad
-66.	<< "Ingrese su ciudad:"
-67.	>> ciudad
-68.	<< "Ingrese su pais:"
-69.	>> pais
-70.	<< "Ingrese su correo electrónico:"
-71.	>> correo
-72.
-73.	<< "Nombre de usuario: " + nombre +
-74.	   "\nEdad: " + edad +
-75.	   "\nCiudad: " + ciudad +
-76.	   "\nPaís: " + pais +
-77.	   "\nCorreo electrónico: " + correo
-78. Fin funcion crearFacebook
+		Si opcion == 1 entonces
+			crearFacebook()
+		De lo contrario
+			Si opcion == 2 entonces
+				crearTwitter()
+			De lo contrario
+				Si opcion == 3 entonces
+					crearWhatsapp()
+				De lo contrario
+					Si opcion == 4 entonces
+						crearTelegram()
+					De lo contrario
+						Si opcion == 5 entonces
+							crearSignal()
+						De lo contrario
+							Si opcion == 6 entonces
+								crearInstagram()
+							De lo contrario
+								Si opcion == 7 entonces
+									crearFlickr()
+								De lo contrario
+									<< "Error en opción seleccionada."
+									contador <-- 0
+								Fin si
+							Fin si
+						Fin Si
+					Fin Si
+				Fin Si
+			Fin Si
+		Fin Si
+		
+		<< "Si desea terminar el programa presione 1, de lo contrario 2."
+		>> opcionDos
 
-79. funcion crearTwitter()
-80.	usuario, x(30)[{A-Z}, {a-z}, {BS, _}]
-81.	nombre, x(20)[{A-Z}, {a-z}, {BS}]
-82.	apellido, x(20)[{A-Z}, {a-z}, {BS}]
-83.	edad, i[0-n]
-84.	ciudad
+		Si opcionDos == 1 entonces
+			bandera <-- false
+		Fin si
+	Fin Mientras
+	Si contador > 0 entonces
+		mensaje <-- obtenerMensaje(contador)
+		<< "Con número de cuentas " + contador + " es: " + mensaje
+	Fin si	
+
+Fin funcion principal
+
+funcion crearFacebook()
+	nombre, x(30)[{A-Z}, {a-z}, {BS}]
+	edad, i[0-n]
+	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
+	pais, x(20)[{A-Z}, {a-z}, {BS}]
+	correo, x(30)[{A-Z}, {a-z}, {0-n}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> nombre
+	<< "Ingrese su edad:"
+	>> edad
+	<< "Ingrese su ciudad:"
+	>> ciudad
+	<< "Ingrese su pais:"
+	>> pais
+	<< "Ingrese su correo electrónico:"
+	>> correo
+
+	<< "Nombre de usuario: " + nombre +
+	   "\nEdad: " + edad +
+	   "\nCiudad: " + ciudad +
+	   "\nPaís: " + pais +
+	   "\nCorreo electrónico: " + correo
+Fin funcion	crearFacebook
+
+funcion crearTwitter()
+	usuario, x(30)[{A-Z}, {a-z}, {BS, _}]
+	nombre, x(20)[{A-Z}, {a-z}, {BS}]
+	apellido, x(20)[{A-Z}, {a-z}, {BS}]
+	edad, i[0-n]
+	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
+	pais, x(20)[{A-Z}, {a-z}, {BS}]
+	idioma, x(20)[{A-Z}, {a-z}, {BS}]
+	correo, x(30)[{A-Z}, {a-z}, {0-n}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> usuario
+	<< "Ingrese sus nombres:"
+	>> nombre
+	<< "Ingrese sus apellidos:"
+	>> apellidos
+	<< "Ingrese su edad:"
+	>> edad
+	<< "Ingrese su ciudad:"
+	>> ciudad
+	<< "Ingrese su pais:"
+	>> pais
+	<< "Ingrese su idioma:"
+	>> idioma
+	<< "Ingrese su correo electrónico:"
+	>> correo
+
+	<< "Nombre de usuario: " + usuario +
+	   "\nNombres: " + nombre +
+	   "\nApellidos: " + apellido +
+	   "\nEdad: " + edad +
+	   "\nCiudad: " + ciudad +
+	   "\nPaís: " + pais +
+	   "\nIdioma: " + idioma +
+	   "\nCorreo electrónico: " + correo
+Fin funcion	crearTwitter
+
+funcion crearWhatsapp()
+	nombre, x(30)[{A-Z}, {a-z}, {BS}]
+	telefono, i[0-n]
+	edad, i[0-n]
+	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
+	pais, x(20)[{A-Z}, {a-z}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> nombre
+	<< "Ingrese su número de teléfono:"
+	>> telefono
+	<< "Ingrese su edad:"
+	>> edad
+	<< "Ingrese su ciudad:"
+	>> ciudad
+	<< "Ingrese su pais:"
+	>> pais
+
+	<< "Nombre de usuario: " + nombre +
+	   "\nTeléfono: " + telefono +
+	   "\nEdad: " + edad +
+	   "\nCiudad: " + ciudad +
+	   "\nPaís: " + pais
+Fin funcion	crearWhatsapp
+
+funcion crearTelegram()
+	nombre, x(30)[{A-Z}, {a-z}, {BS}]
+	telefono, i[0-n]
+	edad, i[0-n]
+	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
+	pais, x(20)[{A-Z}, {a-z}, {BS}]
+	interes, x(20)[{A-Z}, {a-z}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> nombre
+	<< "Ingrese su número de teléfono:"
+	>> telefono
+	<< "Ingrese su edad:"
+	>> edad
+	<< "Ingrese su ciudad:"
+	>> ciudad
+	<< "Ingrese su pais:"
+	>> pais
+	<< "Ingrese su área de interés:"
+	>> interes
+
+	<< "Nombre de usuario: " + nombre +
+	   "\nTeléfono: " + telefono +
+	   "\nEdad: " + edad +
+	   "\nCiudad: " + ciudad +
+	   "\nPaís: " + pais +
+	   "\nÁrea de interés: " + interes
+Fin funcion	crearTelegram
+
+funcion crearSignal()
+	nombre, x(30)[{A-Z}, {a-z}, {BS}]
+	telefono, i[0-n]
+	edad, i[0-n]
+	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
+	pais, x(20)[{A-Z}, {a-z}, {BS}]
+	hobby, x(20)[{A-Z}, {a-z}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> nombre
+	<< "Ingrese su número de teléfono:"
+	>> telefono
+	<< "Ingrese su edad:"
+	>> edad
+	<< "Ingrese su ciudad:"
+	>> ciudad
+	<< "Ingrese su pais:"
+	>> pais
+	<< "Ingrese su hobby principal:"
+	>> hobby
+
+	<< "Nombre de usuario: " + nombre +
+	   "\nTeléfono: " + telefono +
+	   "\nEdad: " + edad +
+	   "\nCiudad: " + ciudad +
+	   "\nPaís: " + pais +
+	   "\nHobby principal: " + hobby
+Fin funcion	crearSignal	
+
+funcion crearInstagram()
+	nombre, x(30)[{A-Z}, {a-z}, {BS}]
+	edad, i[0-n]
+	ciudad, x(20)[{A-Z}, {a-z}, {BS}]
+	correo, x(30)[{A-Z}, {a-z}, {0-n}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> nombre
+	<< "Ingrese su ciudad:"
+	>> ciudad
+	<< "Ingrese su edad:"
+	>> edad
+	<< "Ingrese su correo electrónico:"
+	>> correo
+
+	<< "Nombre de usuario: " + nombre +
+	   "\nCiudad: " + ciudad +
+	   "\nEdad: " + edad +
+	   "\nCorreo electrónico: " + correo
+Fin funcion	crearInstagram
+
+funcion crearFlickr()
+	nombre, x(30)[{A-Z}, {a-z}, {BS}]
+	correo, x(30)[{A-Z}, {a-z}, {0-n}, {BS}]
+	<< "Ingrese su nombre de usuario:"
+	>> nombre
+	<< "Ingrese su correo electrónico:"
+	>> correo
+
+	<< "Nombre de usuario: " + nombre +
+	   "\nCorreo electrónico: " + correo
+Fin funcion	crearFlickr
+
+funcion obtenerMensaje(rango, i): x
+	mensajeFinal(3),x(300)[{a-z}, {A-Z}, {BS}]
+	mensajeFinal <-- {"Campaña con poca afluencia", "Campaña moderada siga adelante", "Excelente campaña"}
+
+	Si rango >= 1 and rango <= 5 entonces
+		retornar mensajeFinal[0]
+	De lo contrario
+		Si rango >= 6 and rango <= 15 entonces
+			retornar mensajeFinal[1]
+		De lo contrario
+			Si rango >= 16
+				retornar mensajeFinal[2]
+			Fin si
+		Fin si
+	Fin si
+Fin funcion obtenerMensaje
+Fin						
